@@ -4,6 +4,10 @@ app = Flask(__name__)
 
 todos=['TODO 1','TODO 2', 'TODO 3']
 
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template("505.html",error=error)
+
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html', error=error)
