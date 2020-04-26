@@ -28,24 +28,13 @@ def index():
 @login_required
 def hello():
     user_ip = session.get("user_ip")
-    #login_form = LoginForm()
-    username = session.get('username')
+    username = current_user.id
 
     context = {
         'user_ip':user_ip,
         'username': username,
-        'todos':get_todos(user_id=username),
-    #    'login_form':login_form,
-        
+        'todos':get_todos(user_id=username),  
     }
-
-    users = get_users()
-    for user in users:
-        print(user.id)
-    #if(login_form.validate_on_submit()):
-    #    username = login_form.username.data
-    #    session['username'] = username
-    #    flash('El usuario ha sido registrado con éxito')
-    #return "Hello, Cristhian Arce esta es tu IP: {}.".format(user_ip)
+    
     return render_template("hello.html",**context)
 
