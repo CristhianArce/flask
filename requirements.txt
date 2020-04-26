@@ -2,3 +2,4 @@ flask
 flask-bootstrap
 flask-wtf
 firebase-admin
+flask-login
