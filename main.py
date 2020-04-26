@@ -1,6 +1,7 @@
 from flask import request, redirect, make_response, render_template, session,flash
 from app import startApp
 from app.forms import LoginForm
+from app.firestore_service import get_users,get_todos
 
 app = startApp()
 
@@ -30,10 +31,15 @@ def hello():
 
     context = {
         'user_ip':user_ip,
-        'todos':todos,
-    #    'login_form':login_form,
         'username': username,
+        'todos':get_todos(user_id=username),
+    #    'login_form':login_form,
+        
     }
+
+    users = get_users()
+    for user in users:
+        print(user.id)
     #if(login_form.validate_on_submit()):
     #    username = login_form.username.data
     #    session['username'] = username
