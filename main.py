@@ -2,6 +2,7 @@ from flask import request, redirect, make_response, render_template, session,fla
 from app import startApp
 from app.forms import LoginForm
 from app.firestore_service import get_users,get_todos
+from flask_login import login_required
 
 app = startApp()
 
@@ -24,6 +25,7 @@ def index():
     return response
 
 @app.route("/hello", methods=['GET'])
+@login_required
 def hello():
     user_ip = session.get("user_ip")
     #login_form = LoginForm()

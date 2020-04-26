@@ -2,4 +2,4 @@ flask
 flask-bootstrap
 flask-wtf
 firebase-admin
-flask-login
+flask-login==0.4.1
