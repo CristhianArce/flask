@@ -5,7 +5,7 @@ from flask import flash
 from flask import redirect,url_for
 from app.firestore_service import get_user
 from app.models import UserData,UserModel
-from flask_login import login_user
+from flask_login import login_user,login_required,logout_user
 from . import auth
 
 @auth.route('/login',methods=['GET','POST'])
@@ -33,3 +33,11 @@ def login():
             flash('The user does not exists')
         return redirect(url_for('index'))
     return render_template('login.html',**context)
+
+@auth.route('logout')
+@login_required
+def logout():
+    logout_user()
+    flash('come back soon!')
+    return redirect(url_for('auth.login'))
+     
