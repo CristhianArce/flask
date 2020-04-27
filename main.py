@@ -2,7 +2,7 @@ from flask import request, redirect, make_response, render_template, session,fla
 from app import startApp
 from app.forms import LoginForm
 from app.firestore_service import get_users,get_todos
-from flask_login import login_required
+from flask_login import login_required,current_user
 
 app = startApp()
 
@@ -35,6 +35,6 @@ def hello():
         'username': username,
         'todos':get_todos(user_id=username),  
     }
-    
+
     return render_template("hello.html",**context)
 

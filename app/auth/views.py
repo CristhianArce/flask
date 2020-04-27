@@ -25,9 +25,11 @@ def login():
                 user = UserModel(user_data)
                 login_user(user)
                 flash('Welcome Back')
+                print("Debería funcionar")
                 redirect(url_for('hello'))
             else:
                 flash('Wrong password')
         else:
             flash('The user does not exists')
+        return redirect(url_for('index'))
     return render_template('login.html',**context)
