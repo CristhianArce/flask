@@ -1,14 +1,10 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 
-{%macro render_todo(todo,delete_form)%}
-    
-    
+{%macro render_todo(todo,delete_form)%}    
     <li class="list-group-item">
         <span class="badge">{{ todo.to_dict().done }}</span>
-        Descripción: {{ todo.to_dict().description }}
-        {{ wtf.quick_form(delete_form, action=url_for('delete', todo_id=todo.id)) }}
-        <!--<ahref="{{ url_for('delete', todo_id=todo.id) }}"class="btn d-inline-block btn-danger">Delete</a>-->
-        
+        <p>Descripción: {{ todo.to_dict().description }} </p>
+        {{ wtf.quick_form(delete_form, action=url_for('delete', todo_id=todo.id)) }}        
     </li>
 {%endmacro%}

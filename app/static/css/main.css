@@ -6,3 +6,29 @@ img {
 html{
     font-family: Arial;
 }
+
+nav{
+    background-color: black;
+    margin: 0px;
+}
+
+.welcome-advise{
+    text-align: center;
+}
+
+.container-1 h2{
+    text-align: center;
+}
+
+.container-1 ul{
+    text-align: center;
+}
+
+.container-1 ul li{
+    display: flex;
+    justify-content: space-between;
+}
+/* 
+.list-group-item{
+    max-width: 900px;
+} */
